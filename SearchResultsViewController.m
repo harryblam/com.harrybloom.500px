@@ -15,6 +15,7 @@
 
 //@property (strong, nonatomic) NSDictionary * responseDict;
 @property (strong, nonatomic) NSArray * imagesArray;
+@property (strong, nonatomic) UIActivityIndicatorView *progressIndicator;
 
 @end
 
@@ -34,6 +35,9 @@
     
     NSString *URL = [NSString stringWithFormat:@"https://api.500px.com/v1/photos/search?consumer_key=%@&term=%@", ConsumerAPIKey, self.searchTerm];
     
+    self.progressIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.progressIndicator];
+    [self.progressIndicator startAnimating];
     [self getImagesWithSearchTerm:URL];
 }
 
@@ -41,6 +45,7 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:URL parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        
         //NSLog(@"JSON: %@", responseObject);
         self.imagesArray = responseObject[@"photos"];
         
@@ -48,11 +53,15 @@
         
         [self.collectionView reloadData];
         
+        [self.progressIndicator stopAnimating];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.progressIndicator stopAnimating];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alert show];
         NSLog(@"Error: %@", error);
     }];
     
-    
+
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section

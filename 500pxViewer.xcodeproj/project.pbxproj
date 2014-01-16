@@ -98,7 +98,6 @@
 		750127681887DFAF00A875AC = {
 			isa = PBXGroup;
 			children = (
-				75C9B59C1887F5F600DF138F /* Views */,
 				7501277A1887DFAF00A875AC /* 500pxViewer */,
 				750127991887DFAF00A875AC /* 500pxViewerTests */,
 				750127731887DFAF00A875AC /* Frameworks */,
@@ -131,6 +130,7 @@
 		7501277A1887DFAF00A875AC /* 500pxViewer */ = {
 			isa = PBXGroup;
 			children = (
+				75C9B59C1887F5F600DF138F /* Views */,
 				75C9B59B1887F5DC00DF138F /* Util */,
 				75C9B59A1887F5D100DF138F /* Controllers */,
 				750127831887DFAF00A875AC /* AppDelegate.h */,
@@ -200,6 +200,7 @@
 				75C9B59E1887FEBD00DF138F /* ImageCollectionViewCell.m */,
 			);
 			name = Views;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -72,6 +72,7 @@
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="Pap-8f-RPe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jDb-cM-DJz">
                             <size key="itemSize" width="155" height="160"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -119,17 +120,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Placeholder Header" footerTitle="Placeholder Footer" id="UsS-Qh-rJA">
+                            <tableViewSection headerTitle="" footerTitle="" id="UsS-Qh-rJA">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="249" id="ENy-eF-mnH">
-                                        <rect key="frame" x="0.0" y="119" width="320" height="249"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="364" id="ENy-eF-mnH">
+                                        <rect key="frame" x="0.0" y="99" width="320" height="364"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ENy-eF-mnH" id="uIJ-Fv-XQz">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="248"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="363"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tz6-4c-5xv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="248"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="363"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>

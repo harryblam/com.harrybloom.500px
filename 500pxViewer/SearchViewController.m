@@ -44,8 +44,14 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    if ([self.searchTextField.text length] > 0) {
+        [self performSegueWithIdentifier:@"searchSegue" sender:self];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Please enter a valid search!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alert show];
+    }
     
-    [self performSegueWithIdentifier:@"searchSegue" sender:self];
     
     
     //THIS IS A CHANGE

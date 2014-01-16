@@ -12,6 +12,7 @@
 @interface PhotoDetailViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *detailImageView;
 @property (strong, nonatomic) NSDictionary *imageDetails;
+@property (strong, nonatomic) UIActivityIndicatorView *progressIndicator;
 
 @end
 
@@ -21,13 +22,14 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.progressIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.progressIndicator];
+    [self.progressIndicator startAnimating];
+
     
     NSString *URL = [NSString stringWithFormat:@"https://api.500px.com/v1/photos/%zi?image_size=4&comments=1&consumer_key=%@", self.photoId, ConsumerAPIKey];
+    
+    //Use NSDictionary of parameters and pass it to the AFNetworking function
     
     [self loadPhotoDetail:URL];
 }
@@ -48,8 +50,12 @@
         [self.detailImageView setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"Loading"]];
         
         [self.tableView reloadData];
+        [self.progressIndicator stopAnimating];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.progressIndicator stopAnimating];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alert show];
         NSLog(@"Error: %@", error);
     }];
 }
