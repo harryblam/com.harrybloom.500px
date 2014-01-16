@@ -46,6 +46,10 @@
 {
     
     [self performSegueWithIdentifier:@"searchSegue" sender:self];
+    
+    
+    //THIS IS A CHANGE
+    
     return YES;
 }
 
